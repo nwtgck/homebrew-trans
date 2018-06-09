@@ -1,0 +1,19 @@
+# (from: https://github.com/inket/update_xcode_plugins/blob/2ec25fa84c78551c724723d0753086f0f96b7053/.travis.yml)
+matrix:
+  include:
+   # OS X 10.12 (from: https://docs.travis-ci.com/user/languages/objective-c)
+    - os: osx
+      osx_image: xcode9.1
+    
+    # OS X 10.11
+    - os: osx
+      osx_image: xcode8
+
+script:
+  - brew update
+  # Try to install by local formula
+  - brew install ./trans.rb
+  # Check path
+  - which trans
+  # Print help
+  - trans -h
